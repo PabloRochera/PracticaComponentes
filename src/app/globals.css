@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======== CONFIGURACIONES GLOBALES ======== */
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 3.9%);
+  --primary: hsl(220, 98%, 61%);
+  --muted: hsl(210, 16%, 93%);
+  --border: hsl(210, 16%, 82%);
+}
+
+.dark {
+  --background: hsl(222, 13%, 13%);
+  --foreground: hsl(0, 0%, 98%);
+  --primary: hsl(204, 100%, 60%);
+  --muted: hsl(222, 13%, 20%);
+  --border: hsl(222, 13%, 40%);
+}
+
+/* ======== ESTILOS GENERALES ======== */
+html, body {
+  @apply bg-background text-foreground font-sans;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-6 md:px-12 xl:px-16;
+}
+header {
+    z-index: 50;
+}
+
+/* ======== SCROLLBAR PERSONALIZADA ======== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
+}
+
+/* ======== ANIMACIONES GLOBALES ======== */
+@layer components {
+  .fade-in {
+    @apply opacity-0 transition-opacity duration-700 ease-in-out;
+  }
+
+  .fade-in.show {
+    @apply opacity-100;
+  }
+
+  .hover-effect {
+    @apply transition-transform duration-300 ease-in-out transform hover:scale-105;
+  }
+}
+
+/* ======== GRADIENTE DE FONDO ======== */
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
